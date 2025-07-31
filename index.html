@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akinawa Motor Oil</title>
+  <link rel="icon" type="image/x-icon" href="./assets/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo-link">
+        <img src="./images/logo.png" alt="Akinawa Logo" class="logo" />
+        </a>
+
+        <button class="burger" aria-label="Menu" onclick="toggleMenu()">
+            ☰
+        </button>
+
+        <nav class="nav-menu">
+            <a href="#about" data-key="nav_about">About</a>
+            <a href="#products" data-key="nav_products">Products</a>
+            <a href="#factory" data-key="nav_factory">Factory</a>
+            <a href="#cert-and-distributors" data-key="nav_distributors">Distributors</a>
+            <a href="#fake-alert" data-key="nav_fakealert">Beware of counterfeits</a>
+        </nav>
+        <div class="lang-switcher">
+            <button onclick="setLanguage('en')">
+            <img src="https://flagcdn.com/24x18/gb.png" alt="English" width="14" height="10"> EN
+            </button>
+            <button onclick="setLanguage('ru')">
+            <img src="https://flagcdn.com/24x18/ru.png" alt="Русский" width="14" height="10"> RU
+            </button>
+            <button onclick="setLanguage('jp')">
+            <img src="https://flagcdn.com/24x18/jp.png" alt="日本語" width="14" height="10"> JP
+            </button>
+        </div>
+    </header>
+
+    <div class="hero" id="about">
+        <div class="overlay"></div>
+            <div class="intro-text">
+                <img src="./images/logo.png" alt="Akinawa Logo" class="hero-logo">
+            </div>
+            <p data-key="hero_intro">Japanese Motor Oils Engineered for Performance and Reliability</p>
+            <p data-key="hero_desc1">
+                Akinawa Oil is a global manufacturer of premium lubricants with over 20 years of industry experience.
+                Founded in Japan, the company merges traditional craftsmanship with cutting-edge technology to deliver products that meet the world’s most demanding standards, including API, ACEA, and JASO.
+            </p>
+        <hr/>
+            <p data-key="hero_desc2">
+                With a production capacity exceeding 10,000 liters per day, Akinawa Oil serves customers across 12 countries, including Japan, Germany, the USA, China, India, and Central Asia.
+                Our mission is to provide sustainable, innovative, and reliable lubrication solutions that extend engine life, boost performance, and reduce environmental impact.
+            </p>
+    </div>
+
+    <section class="section" id="products">
+        <h2 data-key="products_title">Our Products</h2>
+            <div class="product-grid">
+                <div class="card">
+                    <div class="brand">AKINAWA</div>
+                    <div class="product-name">0W-20 SN Hybrid</div>
+                    <div class="subtitle">Fully Synthetic Motor Oil</div>
+                    <img src="./images/0W-20 copy.png" alt="Akinawa 0W-20 SN Hybrid" class="product-image">
+                    <div class="features">
+                        <div class="feature">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Viscosity">
+                            <span data-key="feature_product4">Ultra-low viscosity</span>
+                        </div>
+                        <div class="feature">
+                            <img src="https://img.icons8.com/ios-filled/50/gas-pump.png" alt="Fuel Efficiency">
+                            <span data-key="feature_product5">Maximizes fuel efficiency</span>
+                        </div>
+                        <div class="feature">
+                            <img src="https://img.icons8.com/ios-filled/50/winter.png" alt="Cold Start">
+                            <span data-key="feature_product6">Smooth cold start</span>
+                        </div>
+                    </div>
+
+                    <div class="compatibility-section">
+                        <h4 data-key="compatibility_title" class="compatibility-title">Compatibility</h4>
+                        <div class="compatibility">
+                            <img src="./assets/toyota.svg" alt="Toyota" title="Toyota">
+                            <img src="./assets/lexus.svg" alt="Lexus" title="Lexus">
+                            <img src="./assets/honda.svg" alt="Honda" title="Honda">
+                            <img src="./assets/hyundai.svg" alt="Honda" title="Hyundai">
+                            <img src="./assets/kia.svg" alt="Honda" title="Kia">
+                            <img src="./assets/mercedes-benz.svg" alt="Mercedes-Benz">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="brand">AKINAWA</div>
+                    <div class="product-name">5W-20 SN</div>
+                    <div class="subtitle">Fully Synthetic Motor Oil</div>
+                    <img src="./images/5W-20 copy.png" alt="Akinawa 5W-20 SN" class="product-image">
+                    <div class="features">
+                        <div class="feature">
+                            <img src="https://img.icons8.com/?size=100&id=103403&format=png&color=000000" alt="Oil">
+                            <span data-key="feature_product1">Fully Synthetic</span>
+                        </div>
+                        <div class="feature">
+                            <img src="https://img.icons8.com/ios-filled/50/engine.png" alt="Engine">
+                            <span data-key="feature_product2">Small Engines</span>
+                        </div>
+                        <div class="feature">
+                            <img src="https://img.icons8.com/ios-filled/50/snow.png" alt="Cold Start">
+                            <span data-key="feature_product3">Smooth Cold Start</span>
+                        </div>
+                    </div>
+      
+                    <div class="compatibility-section">
+                        <h4 data-key="compatibility_title" class="compatibility-title">Compatibility</h4>
+                        <div class="compatibility">
+                            <img src="./assets/toyota.svg" alt="Toyota">
+                            <img src="./assets/lexus.svg" alt="Lexus">
+                            <img src="./assets/mitsubishi.svg" alt="Mitsubishi">
+                            <img src="./assets/chrysler.svg" alt="Chrysler">
+                            <img src="./assets/ford.svg" alt="Ford">
+                            <img src="./assets/hyundai.svg" alt="Hyundai">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="brand">AKINAWA</div>
+                    <div class="product-name">5W-30 SN </div>
+                    <div class="subtitle">Fully Synthetic Motor Oil</div>
+                    <img src="./images/5W-30 copy.png" alt="Akinawa 5W-30 SN/CF" class="product-image">
+                    <div class="features">
+                        <div class="feature">
+                            <img src="https://img.icons8.com/ios-filled/50/gas-pump.png" alt="Fuel Saving">
+                            <span data-key="feature_product16">Fuel Saving</span>
+                        </div>
+                        <div class="feature">
+                            <img src="https://img.icons8.com/ios-filled/50/road.png" alt="Multi Terrain">
+                            <span data-key="feature_product17">Multi Terrain</span>
+                        </div>
+                        <div class="feature">
+                            <img src="https://img.icons8.com/ios-filled/50/steering-wheel.png" alt="Driving Flexibility">
+                            <span data-key="feature_product18">Flexible Driving Modes</span>
+                        </div>
+                    </div>        
+  
+                    <div class="compatibility-section">
+                        <h4 data-key="compatibility_title" class="compatibility-title">Compatibility</h4>
+                        <div class="compatibility">
+                            <img src="./assets/toyota.svg" alt="Toyota" title="Toyota">
+                            <img src="./assets/honda.svg" alt="Honda" title="Honda">
+                            <img src="./assets/kia.svg" alt="Kia" title="Kia">
+                            <img src="./assets/suzuki.svg" alt="Suzuki">
+                            <img src="./assets/volvo.svg" alt="Volvo">
+                            <img src="./assets/bmw.svg" alt="BMW">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="brand">AKINAWA</div>
+                    <div class="product-name">5W-40 SN/SF</div>
+                    <div class="subtitle">Fully Synthetic Motor Oil</div>
+                    <img src="./images/5W-40 copy.png" alt="Akinawa 5W-40 SN" class="product-image">
+                    <div class="features">
+                        <div class="feature">
+                            <img src="https://img.icons8.com/ios-filled/50/fire-element.png" alt="Thermal Stability">
+                            <span data-key="feature_product19">Thermal Stability</span>
+                        </div>
+                        <div class="feature">
+                            <img src="https://img.icons8.com/ios-filled/50/shield.png" alt="Heavy Protection">
+                            <span data-key="feature_product20">Heavy Load Protection</span>
+                        </div>
+                        <div class="feature">
+                            <img src="https://img.icons8.com/ios-filled/50/gears.png" alt="Component Safety">
+                            <span data-key="feature_product21">Component Safety</span>
+                        </div>
+                    </div>        
+  
+                    <div class="compatibility-section">
+                        <h4 data-key="compatibility_title" class="compatibility-title">Compatibility</h4>
+                        <div class="compatibility">
+                            <img src="./assets/toyota.svg" alt="Toyota" title="Toyota">
+                            <img src="./assets/nissan.svg" alt="Nissan">
+                            <img src="./assets/mazda.svg" alt="Mazda">
+                            <img src="./assets/suzuki.svg" alt="Suzuki">
+                            <img src="./assets/volvo.svg" alt="Volvo">
+                            <img src="./assets/bmw.svg" alt="BMW">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="brand">AKINAWA</div>
+                    <div class="product-name">10W-40 SL</div>
+                    <div class="subtitle">Semi Synthetic Motor Oil</div>
+                    <img src="./images/10W-40 copy.png" alt="Akinawa 10W-40 SL" class="product-image">
+                    <div class="features">
+                        <div class="feature">
+                            <img src="https://img.icons8.com/ios-filled/50/shield.png" alt="Protection">
+                            <span data-key="feature_product7">Engine Protection</span>
+                        </div>
+                        <div class="feature">
+                            <img src="https://img.icons8.com/ios-filled/50/fire-element.png" alt="Heat">
+                            <span data-key="feature_product8">Heat Stability</span>
+                        </div>
+                        <div class="feature">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2933/2933841.png" alt="Value">
+                            <span data-key="feature_product9">Balanced Value</span>
+                        </div>
+                    </div>
+  
+                    <div class="compatibility-section">
+                        <h4 data-key="compatibility_title" class="compatibility-title">Compatibility</h4>
+                        <div class="compatibility">
+                            <img src="./assets/toyota.svg" alt="Toyota" title="Toyota">
+                            <img src="./assets/lexus.svg" alt="Lexus" title="Lexus">
+                            <img src="./assets/honda.svg" alt="Honda" title="Honda">
+                            <img src="./assets/kia.svg" alt="Kia" title="Kia">
+                            <img src="./assets/fiat.svg" alt="Fiat">
+                            <img src="./assets/renault.svg" alt="Renault">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="brand">AKINAWA</div>
+                    <div class="product-name">10W-40 CI-4</div>
+                    <div class="subtitle">Fully Synthetic Motor Oil</div>
+                    <img src="./images/10W-40black copy.png" alt="Akinawa 10W-40 CI-4" class="product-image">
+                    <div class="features">
+                        <div class="feature">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2076/2076280.png" alt="Harsh">
+                            <span data-key="feature_product10">Harsh Climate</span>
+                        </div>
+                        <div class="feature">
+                            <img src="https://img.icons8.com/ios-filled/50/fog-day--v1.png" alt="Soot">
+                            <span data-key="feature_product11">Soot Control</span>
+                        </div>
+                        <div class="feature">
+                            <img src="https://img.icons8.com/ios-filled/50/filter.png" alt="Clean">
+                            <span data-key="feature_product12">Clean Deposite Engine</span>
+                        </div>
+                    </div>        
+  
+                    <div class="compatibility-section">
+                        <h4 data-key="compatibility_title"  class="compatibility-title">Compatibility</h4>
+                        <div class="compatibility">
+                            <img src="./assets/toyota.svg" alt="Toyota" title="Toyota">
+                            <img src="./assets/ford.svg" alt="Ford">
+                            <img src="./assets/mercedes-benz.svg" alt="Mercedes-Benz">
+                            <img src="./assets/volvo.svg" alt="Volvo">
+                            <img src="./assets/nissan.svg" alt="Nissan">
+                            <img src="./assets/mazda.svg" alt="Mazda">
+                        </div> 
+                    </div>
+                </div>
+      
+                <div class="card">
+                    <div class="brand">AKINAWA</div>
+                    <div class="product-name">CVT HMMF</div>
+                    <div class="subtitle">Fully Synthetic Motor Oil</div>
+                    <img src="./images/HMMF copy.png" alt="Akinawa CVT HMMF" class="product-image">
+                    <div class="features">
+                        <div class="feature">
+                            <img src="https://img.icons8.com/ios-filled/50/automatic.png" alt="CVT Support">
+                            <span data-key="feature_product22">CVT Support</span>
+                        </div>
+                        <div class="feature">
+                            <img src="https://img.icons8.com/ios-filled/50/000000/gear--v1.png" alt="Slip Control">
+                            <span data-key="feature_product23">Belt Slip Control</span>
+                        </div>
+                        <div class="feature">
+                            <img src="https://img.icons8.com/ios-filled/50/000000/settings--v1.png" alt="Smooth Operation">
+                            <span data-key="feature_product24">Smooth Gear Operation</span>
+                        </div>
+                    </div>
+        
+                    <div class="compatibility-section">
+                        <h4 data-key="compatibility_title" class="compatibility-title">Compatibility</h4>
+                        <div class="compatibility">
+                            <img src="./assets/toyota.svg" alt="Toyota" title="Toyota">
+                            <img src="./assets/lexus.svg" alt="Lexus" title="Lexus">
+                            <img src="./assets/nissan.svg" alt="Nissan">
+                            <img src="./assets/mazda.svg" alt="Mazda">
+                            <img src="./assets/gm.svg" alt="GM">
+                            <img src="./assets/ford.svg" alt="Ford">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="brand">AKINAWA</div>
+                    <div class="product-name">Multi ATF</div>
+                    <div class="subtitle">Fully Synthetic Motor Oil</div>
+                    <img src="./images/Multy-ATF copy.png" alt="Akinawa Multi ATF" class="product-image">
+                    <div class="features">
+                        <div class="feature">
+                            <img src="https://img.icons8.com/ios-filled/50/000000/gear--v1.png" alt="Smooth Shifting">
+                            <span data-key="feature_product25">Smooth Shifting</span>
+                        </div>
+                        <div class="feature">
+                            <img src="https://img.icons8.com/ios-filled/50/fire-element.png" alt="Heat Resistance">
+                            <span data-key="feature_product26">Heat Resistance</span>
+                        </div>
+                        <div class="feature">
+                            <img src="https://img.icons8.com/ios-filled/50/test-tube.png" alt="Fluid Longevity">
+                            <span data-key="feature_product27">Extended Fluid Life</span>
+                        </div>
+                    </div>
+        
+                    <div class="compatibility-section">
+                        <h4 data-key="compatibility_title" class="compatibility-title">Compatibility</h4>
+                        <div class="compatibility">
+                            <img src="./assets/toyota.svg" alt="Toyota" title="Toyota">
+                            <img src="./assets/kia.svg" alt="Kia" title="Kia">
+                            <img src="./assets/bmw.svg" alt="BMW">
+                            <img src="./assets/lexus.svg" alt="Lexus" title="Lexus">
+                            <img src="./assets/audi1.svg" alt="Audi">
+                            <img src="./assets/porsche.svg" alt="Porsche">
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/3935135088944" target="_blank" class="card whatsapp-card">
+                    <div class="brand">AKINAWA</div>
+                    <div data-key="product_whats" class="product-name">Tech Support</div>
+                    <div data-key="subtitle_whats" class="subtitle">Get Full Specs & MSDS</div>
+                    <img
+                        src="./images/whatsapp.svg"
+                        alt="WhatsApp"
+                        class="whatsapp-icon"
+                    />
+                    <div class="features">
+                        <div class="feature">
+                            <img src="https://img.icons8.com/ios-filled/50/chat-message--v1.png" alt="Contact">
+                            <span data-key="feature_whats1" >Quick Response</span>
+                        </div>
+                        <div class="feature">
+                            <img src="https://img.icons8.com/ios-filled/50/document--v1.png" alt="Documents">
+                            <span data-key="feature_whats2">MSDS & Specs</span>
+                        </div>
+                        <div class="feature">
+                            <img src="https://img.icons8.com/ios-filled/50/internet--v1.png" alt="Online">
+                            <span data-key="feature_whats3">Available Online</span>
+                        </div>
+                    </div>
+            
+                    <div class="compatibility-section">
+                        <h4 data-key="compatibility_title_contact" class="compatibility-title">Contact Us</h4>
+                    </div>
+                </a>
+            </div>    
+    </section>
+
+    <section class="section" id="factory">
+        <h2 data-key="factory_title">Our Factory</h2>
+        <div class="grid-2">
+            <!-- LEFT BLOCK -->
+            <div class="info-box">
+                <div class="image-box">
+                    <img src="./images/about1.jpg" alt="Factory Photo">
+                </div>
+                <div class="text-box">
+                    <p data-key="factory_desc1">
+                        High-tech, fully automated production line ensuring consistent quality. Located in an eco-industrial area and certified by ISO 9001 / 14001 standards.
+                    </p>
+                    <p data-key="factory_desc11">
+                        Our factory operates 24/7 with integrated quality control, supporting large-scale blending and bottling with traceability and environmental responsibility.
+                    </p>
+                </div>
+            </div>
+            <!-- RIGHT BLOCK -->
+            <div class="info-box">
+                <div class="image-box">
+                    <img src="./images/bulk.jpeg" alt="Bulk Packaging">
+                </div>
+                <div class="text-box">
+                    <p data-key="factory_desc2">
+                        Available in 4L retail, 20L pail, 208L drum, and 1000L IBC formats. Flexible bulk supply programs available for international distributors and OEM clients.
+                    </p>
+                    <p data-key="factory_desc22">
+                        Our flexible packaging and logistics services are designed to support private labeling, just-in-time delivery, and contract manufacturing worldwide.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="factory-contact">
+            <ul>
+                <li><strong>Phone:</strong> <span>+39 351 350 88944</span></li>
+                <li><strong>Email:</strong> <a href="mailto:akinawalubricants@gmail.com">akinawalubricants@gmail.com</a></li>
+                <li><strong>Address:</strong> <span>Okinawa Island, Motobi city, Nashiro By-Pass street</span></li>
+            </ul>
+        </div>
+    </section>
+  
+    <section class="section" id="cert-and-distributors">
+        <h2 data-key="distributors_title">Distributors</h2>  
+        <!-- Distributors Grid -->
+        <div class="grid-2 distributors-grid">
+            <div class="distributor-box">
+                <strong>🇯🇵 <span data-key="distributor_japan_title">Japan (Kyoto)</span></strong>
+                <span data-key="distributor_japan_address">1-2-3 Sakura Street</span><br>
+                <span data-key="distributor_japan_phone">+39 351 350 8894</span>
+            </div>
+            <div class="distributor-box">
+                <strong>🇮🇹 <span data-key="distributor_italy_title">Italy (Milan)</span></strong>
+                <span data-key="distributor_italy_address">Via Roma 55</span><br>
+                <span data-key="distributor_italy_phone">+39 351 350 8894</span>
+            </div>
+            <div class="distributor-box">
+                <strong>🇷🇺 <span data-key="distributor_russia_title">Russia (Moscow)</span></strong>
+                <span data-key="distributor_russia_address">Ulitsa Lenina 10</span><br>
+                <span data-key="distributor_russia_phone">+39 351 350 8894</span>
+            </div>
+            <div class="distributor-box">
+                <strong>🇰🇬 <span data-key="distributor_kyrgyzstan_title">Kyrgyzstan (Bishkek)</span></strong>
+                <span data-key="distributor_kyrgyzstan_address">Ahunbaeva 26</span><br>
+                <span data-key="distributor_kyrgyzstan_phone">+39 351 350 8894</span>
+            </div>
+        </div>
+
+        <!-- Email link below boxes -->
+        <div class="distributor-email-link">
+            <a href="mailto:akinawalubricants@gmail.com">akinawalubricants@gmail.com</a>
+        </div>
+
+        <!-- Certifications -->
+        <div class="cert-grid">
+            <!-- Left: Certificate Image -->
+            <div class="cert-image">
+                <img src="./assets/certificateJP.png" alt="Certificate">
+            </div>
+            <!-- Right: Certification Text -->
+            <div class="cert-text">
+                <h3 data-key="cert_heading">Certified Quality. Proven Reliability.</h3>
+                <p data-key="cert_intro">
+                Akinawa Oil proudly ensures that every product is manufactured under strict international quality control systems.
+                Each bottle undergoes multi-stage laboratory testing and meets the following certifications:
+                </p>
+                <ul>
+                <li data-key="cert_point1">API SN/CF and ACEA A3/B4 compliance</li>
+                <li data-key="cert_point2">ISO 9001:2015 – Quality Management</li>
+                <li data-key="cert_point3">ISO 14001:2015 – Environmental Management</li>
+                <li data-key="cert_point4">EAC Customs Union Certification</li>
+                </ul>
+                <p class="cert-key-points" data-key="cert_keypoints">
+                Our oils ensure <strong>thermal stability</strong>, <strong>lab-certified purity</strong>,
+                and <strong>environmental compliance</strong>. No harmful additives — just clean performance
+                with a <strong>5-year shelf life</strong>.
+                </p>    
+                <p data-key="cert_desc6">With Akinawa Oil, you choose long-lasting protection, environmental care, and outstanding engine performance.</p>
+            </div>
+        </div>
+     </section>
+  
+    <!-- FAKE ALERT SECTION -->
+    <section class="section" id="fake-alert">
+        <div class="container">
+            <div class="fake-alert-message">
+                <h3 data-key="fake_alert_heading" id="fake-alert-heading">
+                    Buy only original Akinawa oil — protect your engine from counterfeits
+                </h3>
+                <p data-key="fake_alert_paragraph" id="fake-alert-paragraph">
+                    More and more counterfeits appear on the market. Choose genuine products from the manufacturer to ensure engine reliability, cleanliness, and longevity.
+                </p>
+            </div>
+            <!-- Carousel -->
+            <div class="carousel">
+                <div class="slides">
+                    <div class="slide-item">
+                        <img src="images/5w-30 original.jpeg" alt="5W-30 Original" class="slide">
+                    </div>
+                    <div class="slide-item">
+                        <img src="images/5w-40 original.jpeg" alt="5W-40 Original" class="slide">
+                    </div>
+                    <div class="slide-item">
+                        <img src="images/Multi-ATF original.jpeg" alt="Multi-ATF Original" class="slide">
+                    </div>
+                    <div class="slide-item">
+                        <img src="images/10w-40 original.jpeg" alt="10W-40 Original" class="slide">
+                    </div>
+                    <div class="slide-item">
+                        <img src="images/HMMF original.jpeg" alt="HMMF Original" class="slide">
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="controls">
+                    <div class="control prev-slide">&#9668;</div>
+                    <div class="control next-slide">&#9658;</div>
+                </div>
+
+                <!-- Dots -->
+                <div class="dots">
+                    <span class="dot" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
+                    <span class="dot" data-index="3"></span>
+                    <span class="dot" data-index="4"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer data-key="footer_rights">
+        &copy; 2025 Akinawa Motor Oil — All rights reserved.
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+

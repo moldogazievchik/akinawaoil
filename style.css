@@ -1,0 +1,1220 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Rubik', sans-serif;
+  background: #f2f2f2;
+  color: #222;
+  font-size: clamp(14px, 1.2vw, 18px); 
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* высота твоего header */
+}
+
+p, li, span {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+  
+.section h2 {
+    color: #b91c1c;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    margin-top: 0;
+}
+.section {
+  padding: 2rem 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  background: white;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  min-height: 100vh; 
+}
+
+header {
+  background: linear-gradient(to right, #b91c1c, #8e1111);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  flex-wrap: wrap;
+}
+
+header img.logo {
+  height: 50px;
+  transition: height 0.3s ease;
+}
+
+nav.nav-menu {
+  display: flex;
+  gap: 1rem;
+}
+
+nav.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+nav.nav-menu a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.burger {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.lang-switcher {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.lang-switcher button {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.lang-switcher button:hover {
+    background: #f5f5f5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.lang-switcher button:focus {
+    outline: none;
+    border-color: #b91c1c;
+}
+
+.lang-switcher button.active {
+    background: #b91c1c;
+    color: white;
+    border-color: #b91c1c;
+}
+
+.lang-switcher button.active:hover {
+    background: #a11818;
+}
+
+.lang-switcher img {
+    display: block;
+    border-radius: 2px;
+}
+
+.hero {
+    background-image: url('./images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 2rem 1rem;
+    overflow: hidden;
+}
+
+.hero .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero .intro-text {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    padding: 20px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.hero-logo {
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.hero .intro-text h1 {
+    margin: 0 0 20px;
+    font-size: 64px;
+    color: var(--main-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero p {
+    position: relative;
+    z-index: 2;
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 10px 0;
+}
+
+    #factory {
+    padding-top: 2rem;
+    }
+  
+  #factory .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    align-items: start;
+  }
+  
+  #factory .info-box {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  #factory .info-box:hover {
+    transform: translateY(-4px);
+  }
+  
+  #factory .image-box {
+    width: 100%;
+    background: #fff;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+  
+  #factory .image-box img {
+    max-width: 100%;
+    max-height: 280px;
+    object-fit: contain;
+    border-radius: 6px;
+  }
+  
+  #factory .text-box {
+    padding: 1rem;
+    flex-grow: 1;
+  }
+  
+  #factory .text-box p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #333;
+    text-align: left;
+  }
+  
+  .factory-contact {
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.04);
+    max-width: 800px;
+    margin: 1.5rem auto 0 auto; /* компактный нижний отступ */
+    font-size: 0.95rem;
+  }
+  
+  .factory-contact ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .factory-contact li {
+    margin-bottom: 0.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    color: #444;
+    line-height: 1.5;
+  }
+  
+  .factory-contact li:last-child {
+    margin-bottom: 0; /* убираем лишний отступ у последнего */
+  }
+  
+  .factory-contact li strong {
+    color: #b91c1c;
+    margin-right: 0.5rem;
+    min-width: 75px;
+    flex-shrink: 0;
+    font-weight: 600;
+  }
+  
+  .factory-contact li a {
+    color: #b91c1c;
+    text-decoration: none;
+    word-break: break-word;
+  }
+  
+  .factory-contact li a:hover {
+    text-decoration: underline;
+  }
+  
+  
+
+
+/* Distributors layout */
+.cert-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    align-items: flex-start;
+    margin-top: 3rem;       /* добавили отступ сверху */
+    margin-bottom: 0rem;    /* убрали лишний отступ снизу */
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  
+  .cert-image img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    object-fit: contain;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin: 0 auto;
+    filter: grayscale(10%) contrast(1.05);
+  }
+  
+  .cert-image img:hover {
+    transform: scale(1.05);
+  }
+  
+  .cert-text h3 {
+    color: #b91c1c;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+  }
+  
+  .cert-text p {
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+  
+  .cert-text ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 1rem 0;
+  }
+  
+  .cert-text ul li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5em;
+    position: relative;
+    font-weight: 500;
+    color: #1f2937;
+  }
+  
+  .cert-text ul li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #16a34a;
+    font-weight: bold;
+  }
+  
+  .cert-key-points {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+  .cert-key-points strong {
+    color: #b91c1c;
+    font-weight: 600;
+  }
+  
+  
+/* Distributors layout */
+#cert-and-distributors .distributors-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+#cert-and-distributors .distributor-box {
+    flex: 1 1 220px;
+    max-width: 240px;
+    background: #fff;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    font-size: 14px;
+}
+
+#cert-and-distributors .distributor-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+#cert-and-distributors .distributor-box strong {
+    color: #b91c1c;
+    font-size: 1rem;
+    display: block;
+}
+#cert-and-distributors .distributor-box br {
+    color: #333;
+    font-size: 1.1rem;
+}
+.distributor-box {
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 6px;
+    padding: 1rem;
+    color: #333;
+    min-height: auto;
+}
+.distributor-email-link {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.distributor-email-link a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 2px solid #b91c1c;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #b91c1c;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.distributor-email-link a:hover {
+    background-color: #b91c1c;
+    color: #fff;
+}
+
+
+.info-box{
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 6px;
+    padding: 1rem;
+    color: #333;
+    min-height: auto;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    justify-content: center;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;  
+    align-items: stretch;
+  }
+
+.card {
+    background: 
+      linear-gradient(to top, #ffffff 0%, transparent 100%),
+      linear-gradient(to bottom left, #4c4b4b, #ffffff); /* основной */
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+    transition: transform 0.3s ease;
+    height: 100%;
+    font-size: 18px;
+    overflow: hidden;
+    background-blend-mode: normal;
+}
+ 
+.product-image {
+    width: 100%;
+    height: 300px; /* УВЕЛИЧЕНО ЕЩЁ БОЛЬШЕ */
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+.brand {
+    font-family: Impact, sans-serif;
+    font-size: 26px;
+    color: #e02020;
+    margin-bottom: 5px;
+    text-align: left;
+}
+.product-name {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 5px;
+    text-align: left;
+}
+.subtitle {
+    font-size: 16px;
+    color: white;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    margin-top: 5px;
+}
+      
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.feature img {
+    width: 24px;
+    height: 24px;
+}
+  
+.compatibility-section {
+    background-color: #ffffff;
+    height: 90px; /* фиксированная высота — можно подстроить */
+    padding: 0 16px;
+    margin: 20px -30px -30px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* поднимает содержимое вверх */
+    gap: -5px;
+}
+  
+  
+.compatibility-title {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+}
+  
+.compatibility {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 16px;
+}
+  
+.compatibility img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    filter: grayscale(100%) brightness(0.9);
+    transition: transform 0.3s ease, filter 0.3s ease;
+    
+}
+  
+.compatibility img:hover {
+    transform: scale(1.1);
+    filter: grayscale(0%) brightness(1.1);
+}
+      
+  
+.reasons {
+    font-size: 12px;
+    margin-top: 10px;
+}
+  
+.reasons div {
+    margin-bottom: 5px;
+}
+      
+.whatsapp-card {
+    color: #222 !important;
+    text-decoration: none !important;
+    background: 
+    linear-gradient(to top, #ffffff 0%, transparent 100%),
+    linear-gradient(to bottom left, #4c4b4b, #ffffff); /* основной */
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  transition: transform 0.3s ease;
+  min-height: 50vh;
+  font-size: 18px;
+  overflow: hidden;
+  background-blend-mode: normal;
+  }
+  
+  .whatsapp-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .whatsapp-icon-wrapper {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+  }
+  
+  .whatsapp-icon {
+    width: 250px;
+    height: 323px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+    justify-content: center;
+    padding-left: 50px;
+  }
+  
+.features-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #333;
+}
+
+.feature-item img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+/* FAKE ALERT CAROUSEL STYLES */
+.fake-alert-message {
+  margin-bottom: 24px;
+  padding: 0 1rem;
+}
+
+.fake-alert-message h3 {
+  font-size: 1.25rem;
+  color: #b91c1c;
+  font-weight: 600;
+}
+
+.fake-alert-message p {
+  color: #4b5563;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+#fake-alert.section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background-color: #fff;
+}
+
+.slides {
+  display: flex;
+  position: relative;
+  left: 0;
+  transition: all 0.6s ease-in-out;
+}
+
+/* Обёртка слайда + подпись */
+.slide-item {
+  min-width: 100%;
+  text-align: center;
+  padding-bottom: 16px;
+}
+
+.slide {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+/* Controls (стрелки) */
+.controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  transform: translateY(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.carousel:hover .controls {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.control {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #b91c1c;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.control:hover {
+  background: #ffffff;
+}
+
+/* Навигационные точки */
+.dots {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: #d1d5db;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #b91c1c;
+}
+
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: auto;
+  }
+@media (max-width: 768px) {
+    /* Общие тексты и контейнеры */
+    body {
+      font-size: 14px;
+    }
+  
+    .section {
+      padding: 1rem;
+    }
+  
+    .section h2 {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+  
+    /* Header */
+    header {
+      flex-wrap: nowrap;
+      padding: 0.8rem 1rem;
+    }
+  
+    header img.logo {
+      height: 30px;
+    }
+  
+    .burger {
+      display: block;
+      font-size: 2rem;
+    }
+  
+    nav.nav-menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: #8e1111;
+      z-index: 999;
+      padding: 1rem 0;
+      gap: 1rem;
+    }
+  
+    nav.nav-menu.show {
+      display: flex;
+    }
+  
+    .lang-switcher {
+      margin-left: auto;
+    }
+  
+    .hero {
+      height: auto;
+      padding: 5rem 1rem 2rem;
+    }
+  
+    .hero-logo {
+      max-width: 120px;
+      margin-bottom: 10px;
+    }
+  
+    .hero p {
+      font-size: 14px;
+      line-height: 1.4;
+      max-width: 100%;
+    }
+  
+    #factory .grid-2 {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  
+    #factory .info-box {
+      min-height: auto;
+    }
+  
+    #factory .info-box img {
+      height: auto;
+      max-height: 200px;
+    }
+  
+    .cert-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  
+    .cert-image img {
+      max-width: 80%;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+    }
+  
+    .cert-text h3 {
+      font-size: 1.2rem;
+      text-align: center;
+    }
+  
+    #cert-and-distributors .distributors-grid {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+  
+    #cert-and-distributors .distributor-box {
+      width: 100%;
+      max-width: 90%;
+      padding: 1rem;
+      font-size: 14px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+  
+    #cert-and-distributors .distributor-box strong {
+      font-size: 1rem;
+      display: block;
+      margin-bottom: 0.3rem;
+      color: #b91c1c;
+    }
+  
+    #cert-and-distributors .distributor-box span,
+    #cert-and-distributors .distributor-box a {
+      display: block;
+      line-height: 1.4;
+      margin-bottom: 0.25rem;
+      color: #333;
+      font-size: 0.95rem;
+    }
+  
+    #cert-and-distributors .distributor-box a {
+      color: #b91c1c;
+      text-decoration: none;
+    }
+  
+    #cert-and-distributors .distributor-box a:hover {
+      text-decoration: underline;
+    }
+  
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        padding: 24px;
+      }
+    
+      .product-image {
+        height: 240px;
+      }
+    
+      .brand {
+        font-size: 22px;
+      }
+    
+      .product-name {
+        font-size: 18px;
+      }
+    
+      .subtitle {
+        font-size: 15px;
+      }
+    
+      .feature span {
+        font-size: 12px;
+      }
+    
+      .whatsapp-icon {
+        width: 200px;
+        padding-left: 0;
+        margin: 0 auto;
+        display: block;
+      }
+    
+      .compatibility img {
+        width: 26px;
+        height: 26px;
+    }
+    .carousel {
+    max-width: 600px;
+  }
+
+  .slide-item {
+    padding-bottom: 12px;
+  }
+
+  .fake-alert-message p {
+    font-size: 0.95rem;
+  }
+
+  .control {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+    footer {
+      padding: 1rem;
+      font-size: 13px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    body {
+      font-size: 15px;
+    }
+  
+    .section {
+      padding: 1.5rem;
+    }
+  
+    .section h2 {
+      font-size: 1.75rem;
+      text-align: center;
+    }
+  
+    header {
+      flex-wrap: wrap;
+      padding: 1rem;
+    }
+  
+    header img.logo {
+      height: 36px;
+    }
+  
+    .hero {
+      padding: 4rem 1.5rem 2rem;
+    }
+  
+    .hero-logo {
+      max-width: 140px;
+    }
+  
+    .hero p {
+      font-size: 15px;
+    }
+  
+    #factory .grid-2 {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  
+    .cert-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .cert-image img {
+      max-width: 100%;
+    }
+  
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        padding: 30px;
+      }
+    
+      .product-image {
+        height: 260px;
+      }
+    
+      .brand {
+        font-size: 24px;
+      }
+    
+      .product-name {
+        font-size: 20px;
+      }
+    
+      .subtitle {
+        font-size: 16px;
+      }
+    
+      .feature span {
+        font-size: 13px;
+      }
+    
+      .whatsapp-icon {
+        width: 230px;
+        padding-left: 0;
+        margin: 0 auto;
+        display: block;
+      }
+    
+      .compatibility img {
+        width: 28px;
+        height: 28px;
+      }
+      .carousel {
+    max-width: 800px;
+  }
+
+  .control {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .fake-alert-message h3 {
+    font-size: 1.125rem;
+  }
+  
+    footer {
+      font-size: 14px;
+      padding: 1.2rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    body {
+      font-size: 13px;
+    }
+  
+    .section {
+      padding: 1rem;
+    }
+  
+    .section h2 {
+      font-size: 1.4rem;
+      text-align: center;
+    }
+  
+    header {
+      flex-wrap: nowrap;
+      padding: 0.8rem 1rem;
+    }
+  
+    header img.logo {
+      height: 28px;
+    }
+  
+    .burger {
+      display: block;
+      font-size: 1.8rem;
+    }
+  
+    nav.nav-menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      right: 0;
+      background: #8e1111;
+      padding: 1rem 0;
+      gap: 0.8rem;
+      z-index: 1000;
+    }
+  
+    nav.nav-menu.show {
+      display: flex;
+    }
+  
+    .lang-switcher {
+      margin-left: auto;
+    }
+  
+    .hero {
+      padding: 3.5rem 1rem 2rem;
+    }
+  
+    .hero-logo {
+      max-width: 100px;
+    }
+  
+    .hero p {
+      font-size: 13px;
+    }
+  
+    #factory .grid-2 {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  
+    .cert-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  
+    .cert-image img {
+      max-width: 85%;
+      margin: 0 auto;
+      display: block;
+    }
+  
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+      }
+    
+      .product-image {
+        height: 220px;
+      }
+    
+      .brand {
+        font-size: 20px;
+      }
+    
+      .product-name {
+        font-size: 18px;
+      }
+    
+      .subtitle {
+        font-size: 14px;
+      }
+    
+      .features {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    
+      .feature span {
+        font-size: 11px;
+      }
+    
+      .whatsapp-icon {
+        width: 180px;
+        padding-left: 0;
+        margin: 0 auto;
+        display: block;
+      }
+    
+      .compatibility-section {
+        height: auto;
+        padding: 12px;
+      }
+    
+      .compatibility-title {
+        font-size: 14px;
+      }
+    
+      .compatibility img {
+        width: 24px;
+        height: 24px;
+      }
+  
+      .carousel {
+    max-width: 100%;
+    border-radius: 0;
+  }
+
+  .fake-alert-message {
+    padding: 0 0.5rem;
+  }
+
+  .fake-alert-message h3 {
+    font-size: 1rem;
+  }
+
+  .fake-alert-message p {
+    font-size: 0.875rem;
+  }
+
+  .dots {
+    margin-top: 12px;
+  }
+
+  .dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 4px;
+  }
+    footer {
+      padding: 1rem;
+      font-size: 12px;
+    }
+  }
+  
