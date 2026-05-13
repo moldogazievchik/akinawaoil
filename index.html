@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Akinawa Motor Oil</title>
-  <link rel="icon" type="image/x-icon" href="./assets/favicon.svg">
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>Akinawa Motor Oil — Premium Japanese Lubricants</title>
+  <meta name="description" content="Akinawa Oil — Japanese motor oils engineered for performance and reliability. API, ACEA, JASO certified. Founded in Okinawa with 20+ years of expertise.">
+  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="scroll-progress" id="scrollProgress"></div>
     <header>
         <a href="#" class="logo-link">
         <img src="./images/logo.png" alt="Akinawa Logo" class="logo" />
@@ -42,8 +44,9 @@
         <div class="overlay"></div>
             <div class="intro-text">
                 <img src="./images/logo.png" alt="Akinawa Logo" class="hero-logo">
+                <span class="hero-badge" data-key="hero_badge">Made in Japan · Since 2005</span>
             </div>
-            <p data-key="hero_intro">Japanese Motor Oils Engineered for Performance and Reliability</p>
+            <p class="hero-tagline" data-key="hero_intro">Japanese Motor Oils Engineered for Performance and Reliability</p>
             <p data-key="hero_desc1">
                 Akinawa Oil is a global manufacturer of premium lubricants with over 20 years of industry experience.
                 Founded in Japan, the company merges traditional craftsmanship with cutting-edge technology to deliver products that meet the world’s most demanding standards, including API, ACEA, and JASO.
@@ -53,12 +56,37 @@
                 With a production capacity exceeding 10,000 liters per day, Akinawa Oil serves customers across 12 countries, including Japan, Germany, the USA, China, India, and Central Asia.
                 Our mission is to provide sustainable, innovative, and reliable lubrication solutions that extend engine life, boost performance, and reduce environmental impact.
             </p>
+            <div class="hero-cta">
+                <a href="#products" class="btn btn-primary" data-key="hero_cta_products">Explore Products</a>
+                <a href="https://wa.me/3935135088944" target="_blank" rel="noopener" class="btn btn-outline" data-key="hero_cta_contact">Contact Us</a>
+            </div>
     </div>
+
+    <section class="stats-section" id="stats">
+        <div class="stats-grid">
+            <div class="stat-item reveal">
+                <div class="stat-number" data-target="20" data-suffix="+">0</div>
+                <div class="stat-label" data-key="stat_years">Years of Experience</div>
+            </div>
+            <div class="stat-item reveal">
+                <div class="stat-number" data-target="10000" data-suffix="L">0</div>
+                <div class="stat-label" data-key="stat_capacity">Daily Production</div>
+            </div>
+            <div class="stat-item reveal">
+                <div class="stat-number" data-target="12" data-suffix="">0</div>
+                <div class="stat-label" data-key="stat_countries">Countries Served</div>
+            </div>
+            <div class="stat-item reveal">
+                <div class="stat-number" data-target="9" data-suffix="">0</div>
+                <div class="stat-label" data-key="stat_products">Premium Products</div>
+            </div>
+        </div>
+    </section>
 
     <section class="section" id="products">
         <h2 data-key="products_title">Our Products</h2>
             <div class="product-grid">
-                <div class="card">
+                <div class="card reveal">
                     <div class="brand">AKINAWA</div>
                     <div class="product-name">0W-20 SN Hybrid</div>
                     <div class="subtitle">Fully Synthetic Motor Oil</div>
@@ -84,14 +112,14 @@
                             <img src="./assets/toyota.svg" alt="Toyota" title="Toyota">
                             <img src="./assets/lexus.svg" alt="Lexus" title="Lexus">
                             <img src="./assets/honda.svg" alt="Honda" title="Honda">
-                            <img src="./assets/hyundai.svg" alt="Honda" title="Hyundai">
-                            <img src="./assets/kia.svg" alt="Honda" title="Kia">
+                            <img src="./assets/hyundai.svg" alt="Hyundai" title="Hyundai">
+                            <img src="./assets/kia.svg" alt="Kia" title="Kia">
                             <img src="./assets/mercedes-benz.svg" alt="Mercedes-Benz">
                         </div>
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card reveal">
                     <div class="brand">AKINAWA</div>
                     <div class="product-name">5W-20 SN</div>
                     <div class="subtitle">Fully Synthetic Motor Oil</div>
@@ -124,7 +152,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card reveal">
                     <div class="brand">AKINAWA</div>
                     <div class="product-name">5W-30 SN </div>
                     <div class="subtitle">Fully Synthetic Motor Oil</div>
@@ -157,7 +185,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card reveal">
                     <div class="brand">AKINAWA</div>
                     <div class="product-name">5W-40 SN/SF</div>
                     <div class="subtitle">Fully Synthetic Motor Oil</div>
@@ -190,7 +218,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card reveal">
                     <div class="brand">AKINAWA</div>
                     <div class="product-name">10W-40 SL</div>
                     <div class="subtitle">Semi Synthetic Motor Oil</div>
@@ -223,7 +251,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card reveal">
                     <div class="brand">AKINAWA</div>
                     <div class="product-name">10W-40 CI-4</div>
                     <div class="subtitle">Fully Synthetic Motor Oil</div>
@@ -256,7 +284,7 @@
                     </div>
                 </div>
       
-                <div class="card">
+                <div class="card reveal">
                     <div class="brand">AKINAWA</div>
                     <div class="product-name">CVT HMMF</div>
                     <div class="subtitle">Fully Synthetic Motor Oil</div>
@@ -289,7 +317,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card reveal">
                     <div class="brand">AKINAWA</div>
                     <div class="product-name">Multi ATF</div>
                     <div class="subtitle">Fully Synthetic Motor Oil</div>
@@ -322,7 +350,7 @@
                     </div>
                 </div>
 
-                <a href="https://wa.me/3935135088944" target="_blank" class="card whatsapp-card">
+                <a href="https://wa.me/3935135088944" target="_blank" rel="noopener" class="card whatsapp-card reveal">
                     <div class="brand">AKINAWA</div>
                     <div data-key="product_whats" class="product-name">Tech Support</div>
                     <div data-key="subtitle_whats" class="subtitle">Get Full Specs & MSDS</div>
@@ -357,9 +385,9 @@
         <h2 data-key="factory_title">Our Factory</h2>
         <div class="grid-2">
             <!-- LEFT BLOCK -->
-            <div class="info-box">
+            <div class="info-box reveal">
                 <div class="image-box">
-                    <img src="./images/about1.jpg" alt="Factory Photo">
+                    <img src="./images/about1.jpg" alt="Factory Photo" loading="lazy">
                 </div>
                 <div class="text-box">
                     <p data-key="factory_desc1">
@@ -371,9 +399,9 @@
                 </div>
             </div>
             <!-- RIGHT BLOCK -->
-            <div class="info-box">
+            <div class="info-box reveal">
                 <div class="image-box">
-                    <img src="./images/bulk.jpeg" alt="Bulk Packaging">
+                    <img src="./images/bulk.jpeg" alt="Bulk Packaging" loading="lazy">
                 </div>
                 <div class="text-box">
                     <p data-key="factory_desc2">
@@ -399,22 +427,22 @@
         <h2 data-key="distributors_title">Distributors</h2>  
         <!-- Distributors Grid -->
         <div class="grid-2 distributors-grid">
-            <div class="distributor-box">
+            <div class="distributor-box reveal">
                 <strong>🇯🇵 <span data-key="distributor_japan_title">Japan (Kyoto)</span></strong>
                 <span data-key="distributor_japan_address">1-2-3 Sakura Street</span><br>
                 <span data-key="distributor_japan_phone">+39 351 350 8894</span>
             </div>
-            <div class="distributor-box">
+            <div class="distributor-box reveal">
                 <strong>🇮🇹 <span data-key="distributor_italy_title">Italy (Milan)</span></strong>
                 <span data-key="distributor_italy_address">Via Roma 55</span><br>
                 <span data-key="distributor_italy_phone">+39 351 350 8894</span>
             </div>
-            <div class="distributor-box">
+            <div class="distributor-box reveal">
                 <strong>🇷🇺 <span data-key="distributor_russia_title">Russia (Moscow)</span></strong>
                 <span data-key="distributor_russia_address">Ulitsa Lenina 10</span><br>
                 <span data-key="distributor_russia_phone">+39 351 350 8894</span>
             </div>
-            <div class="distributor-box">
+            <div class="distributor-box reveal">
                 <strong>🇰🇬 <span data-key="distributor_kyrgyzstan_title">Kyrgyzstan (Bishkek)</span></strong>
                 <span data-key="distributor_kyrgyzstan_address">Ahunbaeva 26</span><br>
                 <span data-key="distributor_kyrgyzstan_phone">+39 351 350 8894</span>
@@ -429,11 +457,11 @@
         <!-- Certifications -->
         <div class="cert-grid">
             <!-- Left: Certificate Image -->
-            <div class="cert-image">
-                <img src="./assets/certificateJP.png" alt="Certificate">
+            <div class="cert-image reveal">
+                <img src="./assets/certificateJP.png" alt="Certificate" loading="lazy">
             </div>
             <!-- Right: Certification Text -->
-            <div class="cert-text">
+            <div class="cert-text reveal">
                 <h3 data-key="cert_heading">Certified Quality. Proven Reliability.</h3>
                 <p data-key="cert_intro">
                 Akinawa Oil proudly ensures that every product is manufactured under strict international quality control systems.
@@ -467,39 +495,46 @@
                 </p>
             </div>
             <!-- Carousel -->
-            <div class="carousel">
-                <div class="slides">
-                    <div class="slide-item">
-                        <img src="images/5w-30 original.jpeg" alt="5W-30 Original" class="slide">
-                    </div>
-                    <div class="slide-item">
-                        <img src="images/5w-40 original.jpeg" alt="5W-40 Original" class="slide">
-                    </div>
-                    <div class="slide-item">
-                        <img src="images/Multi-ATF original.jpeg" alt="Multi-ATF Original" class="slide">
-                    </div>
-                    <div class="slide-item">
-                        <img src="images/10w-40 original.jpeg" alt="10W-40 Original" class="slide">
-                    </div>
-                    <div class="slide-item">
-                        <img src="images/HMMF original.jpeg" alt="HMMF Original" class="slide">
+            <div class="carousel" role="region" aria-roledescription="carousel" aria-label="Original Akinawa products" tabindex="0">
+                <div class="slides-viewport">
+                    <div class="slides">
+                        <div class="slide-item" role="group" aria-roledescription="slide" aria-label="1 of 5">
+                            <img src="images/5w-30 original.jpeg" alt="Akinawa 5W-30 — original vs fake comparison" class="slide" loading="eager" decoding="async">
+                        </div>
+                        <div class="slide-item" role="group" aria-roledescription="slide" aria-label="2 of 5">
+                            <img src="images/5w-40 original.jpeg" alt="Akinawa 5W-40 — original vs fake comparison" class="slide" loading="lazy" decoding="async">
+                        </div>
+                        <div class="slide-item" role="group" aria-roledescription="slide" aria-label="3 of 5">
+                            <img src="images/Multi-ATF original.jpeg" alt="Akinawa Multi-ATF — original vs fake comparison" class="slide" loading="lazy" decoding="async">
+                        </div>
+                        <div class="slide-item" role="group" aria-roledescription="slide" aria-label="4 of 5">
+                            <img src="images/10w-40 original.jpeg" alt="Akinawa 10W-40 — original vs fake comparison" class="slide" loading="lazy" decoding="async">
+                        </div>
+                        <div class="slide-item" role="group" aria-roledescription="slide" aria-label="5 of 5">
+                            <img src="images/HMMF original.jpeg" alt="Akinawa CVT HMMF — original vs fake comparison" class="slide" loading="lazy" decoding="async">
+                        </div>
                     </div>
                 </div>
 
                 <!-- Controls -->
-                <div class="controls">
-                    <div class="control prev-slide">&#9668;</div>
-                    <div class="control next-slide">&#9658;</div>
-                </div>
+                <button class="control prev-slide" type="button" aria-label="Previous slide">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <button class="control next-slide" type="button" aria-label="Next slide">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
 
-                <!-- Dots -->
-                <div class="dots">
-                    <span class="dot" data-index="0"></span>
-                    <span class="dot" data-index="1"></span>
-                    <span class="dot" data-index="2"></span>
-                    <span class="dot" data-index="3"></span>
-                    <span class="dot" data-index="4"></span>
-                </div>
+                <!-- Progress (autoplay indicator) -->
+                <div class="carousel-progress"><span></span></div>
+            </div>
+
+            <!-- Dots -->
+            <div class="dots" role="tablist" aria-label="Carousel pagination">
+                <button class="dot active" type="button" data-index="0" aria-label="Go to slide 1"></button>
+                <button class="dot" type="button" data-index="1" aria-label="Go to slide 2"></button>
+                <button class="dot" type="button" data-index="2" aria-label="Go to slide 3"></button>
+                <button class="dot" type="button" data-index="3" aria-label="Go to slide 4"></button>
+                <button class="dot" type="button" data-index="4" aria-label="Go to slide 5"></button>
             </div>
         </div>
     </section>
@@ -507,6 +542,15 @@
     <footer data-key="footer_rights">
         &copy; 2025 Akinawa Motor Oil — All rights reserved.
     </footer>
+
+    <a href="https://wa.me/3935135088944" target="_blank" rel="noopener" class="float-whatsapp" aria-label="WhatsApp">
+        <img src="./images/whatsapp.svg" alt="WhatsApp">
+    </a>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
     <script src="script.js"></script>
 </body>
 </html>

@@ -98,7 +98,20 @@ const translations = {
       feature_whats3: "Available Online",
       nav_fakealert: "Beware of counterfeits",
       fake_alert_heading: "Buy only original Akinawa oil — protect your engine from counterfeits",
-      fake_alert_paragraph: "More and more counterfeits appear on the market. Choose genuine products from the manufacturer to ensure engine reliability, cleanliness, and longevity."
+      fake_alert_paragraph: "More and more counterfeits appear on the market. Choose genuine products from the manufacturer to ensure engine reliability, cleanliness, and longevity.",
+      hero_badge: "Made in Japan · Since 2005",
+      hero_cta_products: "Explore Products",
+      hero_cta_contact: "Contact Us",
+      stat_years: "Years of Experience",
+      stat_capacity: "Liters per Day",
+      stat_countries: "Countries Served",
+      stat_products: "Premium Products",
+      slide_badge_original: "Original",
+      slide_5w30: "Akinawa 5W-30 SN",
+      slide_5w40: "Akinawa 5W-40 SN/SF",
+      slide_matf: "Akinawa Multi ATF",
+      slide_10w40: "Akinawa 10W-40 SL",
+      slide_hmmf: "Akinawa CVT HMMF"
     },
 
     ru:
@@ -199,7 +212,20 @@ const translations = {
       feature_whats3: "Доступно онлайн",
       nav_fakealert: "Остерегайтесь подделок",
       fake_alert_heading: "Покупай только оригинальное масло Akinawa — защити двигатель от подделки",
-      fake_alert_paragraph: "Всё больше подделок появляется на рынке. Выбирайте подлинную продукцию от производителя, чтобы сохранить надёжность, чистоту и ресурс двигателя."
+      fake_alert_paragraph: "Всё больше подделок появляется на рынке. Выбирайте подлинную продукцию от производителя, чтобы сохранить надёжность, чистоту и ресурс двигателя.",
+      hero_badge: "Сделано в Японии · С 2005 года",
+      hero_cta_products: "Смотреть продукцию",
+      hero_cta_contact: "Связаться с нами",
+      stat_years: "Лет опыта",
+      stat_capacity: "Литров в день",
+      stat_countries: "Стран присутствия",
+      stat_products: "Премиум-продуктов",
+      slide_badge_original: "Оригинал",
+      slide_5w30: "Akinawa 5W-30 SN",
+      slide_5w40: "Akinawa 5W-40 SN/SF",
+      slide_matf: "Akinawa Multi ATF",
+      slide_10w40: "Akinawa 10W-40 SL",
+      slide_hmmf: "Akinawa CVT HMMF"
     },
 
     jp: 
@@ -300,33 +326,44 @@ const translations = {
       feature_whats3: "オンラインで利用可能",
       nav_fakealert: "偽物にご注意ください",
       fake_alert_heading: "純正のAkinawaオイルを選んで、エンジンを偽物から守りましょう",
-      fake_alert_paragraph: "市場には偽物が増えています。エンジンの信頼性と寿命を守るために、メーカーの純正品をお選びください。"
+      fake_alert_paragraph: "市場には偽物が増えています。エンジンの信頼性と寿命を守るために、メーカーの純正品をお選びください。",
+      hero_badge: "日本製 · 2005年から",
+      hero_cta_products: "製品を見る",
+      hero_cta_contact: "お問い合わせ",
+      stat_years: "年の経験",
+      stat_capacity: "1日あたりリットル",
+      stat_countries: "対応国",
+      stat_products: "プレミアム製品",
+      slide_badge_original: "本物",
+      slide_5w30: "Akinawa 5W-30 SN",
+      slide_5w40: "Akinawa 5W-40 SN/SF",
+      slide_matf: "Akinawa Multi ATF",
+      slide_10w40: "Akinawa 10W-40 SL",
+      slide_hmmf: "Akinawa CVT HMMF"
     }
 
     
 };
   
 function setLanguage(lang) {
-  // обновляем тексты
   document.querySelectorAll('[data-key]').forEach(el => {
     const key = el.getAttribute('data-key');
-    if (translations[lang][key]) {
-      el.innerHTML = translations[lang][key]; // используем innerHTML
-    } else {
-      el.textContent = translations[lang][key];
-  }
+    if (translations[lang] && translations[lang][key]) {
+      el.innerHTML = translations[lang][key];
+    }
   });
-  
-  // снимаем выделение со всех кнопок
+
   document.querySelectorAll('.lang-switcher button').forEach(btn => {
       btn.classList.remove('active');
   });
 
-  // добавляем выделение активной кнопке
   const activeBtn = document.querySelector(`.lang-switcher button[onclick="setLanguage('${lang}')"]`);
   if (activeBtn) {
       activeBtn.classList.add('active');
   }
+
+  document.documentElement.lang = lang === 'jp' ? 'ja' : lang;
+  try { localStorage.setItem('akinawa_lang', lang); } catch (e) {}
 }
 
 function toggleMenu() {
@@ -335,55 +372,327 @@ function toggleMenu() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  const carousel = document.querySelector(".carousel");
   const slides = document.querySelector(".slides");
-  const slideCount = slides.children.length;
-  const slideWidth = 100;
-  const maxLeft = (slideCount - 1) * -slideWidth;
-  const dots = document.querySelectorAll('.dot');
+  if (!carousel || !slides) return;
 
-  let current = 0;
+  const slideItems = slides.querySelectorAll(".slide-item");
+  const count = slideItems.length;
+  const dots = Array.from(document.querySelectorAll(".dot"));
+  const prevBtn = carousel.querySelector(".prev-slide");
+  const nextBtn = carousel.querySelector(".next-slide");
+  const progressBar = carousel.querySelector(".carousel-progress span");
 
-  function changeSlide(next = true) {
-    if (next) {
-      current = current > maxLeft ? current - slideWidth : 0;
-    } else {
-      current = current < 0 ? current + slideWidth : maxLeft;
+  const AUTOPLAY_MS = 5000;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  let index = 0;
+  let timerId = null;
+  let progressFrameId = null;
+  let progressStart = 0;
+  let paused = false;
+  let inViewport = false;
+
+  const render = () => {
+    slides.style.transform = `translate3d(${-index * 100}%, 0, 0)`;
+    dots.forEach((d, i) => {
+      d.classList.toggle("active", i === index);
+      d.setAttribute("aria-selected", i === index ? "true" : "false");
+    });
+    slideItems.forEach((s, i) => {
+      s.setAttribute("aria-hidden", i === index ? "false" : "true");
+    });
+  };
+
+  const goTo = (i, { userAction = false } = {}) => {
+    index = ((i % count) + count) % count;
+    render();
+    if (userAction) resetAutoplay();
+  };
+
+  const next = (opts) => goTo(index + 1, opts);
+  const prev = (opts) => goTo(index - 1, opts);
+
+  /* === AUTOPLAY WITH PROGRESS BAR === */
+  const stopProgress = () => {
+    if (progressFrameId) {
+      cancelAnimationFrame(progressFrameId);
+      progressFrameId = null;
     }
-    slides.style.left = current + "%";
-    updateDots();
-  }
+  };
 
-  function updateDots() {
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === Math.abs(current / 100));
+  const tickProgress = (now) => {
+    const elapsed = now - progressStart;
+    const pct = Math.min((elapsed / AUTOPLAY_MS) * 100, 100);
+    if (progressBar) progressBar.style.width = pct + "%";
+    if (pct < 100) {
+      progressFrameId = requestAnimationFrame(tickProgress);
+    }
+  };
+
+  const startAutoplay = () => {
+    if (reducedMotion || paused || !inViewport) return;
+    stopAutoplay();
+    progressStart = performance.now();
+    if (progressBar) progressBar.style.width = "0%";
+    progressFrameId = requestAnimationFrame(tickProgress);
+    timerId = setTimeout(() => next(), AUTOPLAY_MS);
+  };
+
+  const stopAutoplay = () => {
+    if (timerId) {
+      clearTimeout(timerId);
+      timerId = null;
+    }
+    stopProgress();
+  };
+
+  const resetAutoplay = () => {
+    stopAutoplay();
+    if (progressBar) progressBar.style.width = "0%";
+    startAutoplay();
+  };
+
+  const pause = () => {
+    paused = true;
+    carousel.classList.add("is-paused");
+    stopAutoplay();
+  };
+
+  const resume = () => {
+    paused = false;
+    carousel.classList.remove("is-paused");
+    startAutoplay();
+  };
+
+  /* === CONTROLS === */
+  if (nextBtn) nextBtn.addEventListener("click", () => next({ userAction: true }));
+  if (prevBtn) prevBtn.addEventListener("click", () => prev({ userAction: true }));
+
+  dots.forEach((dot, i) => {
+    dot.setAttribute("role", "tab");
+    dot.setAttribute("aria-selected", i === 0 ? "true" : "false");
+    dot.addEventListener("click", () => goTo(i, { userAction: true }));
+  });
+
+  /* === HOVER / FOCUS PAUSE === */
+  carousel.addEventListener("mouseenter", pause);
+  carousel.addEventListener("mouseleave", resume);
+  carousel.addEventListener("focusin", pause);
+  carousel.addEventListener("focusout", (e) => {
+    if (!carousel.contains(e.relatedTarget)) resume();
+  });
+
+  /* === KEYBOARD === */
+  carousel.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") { e.preventDefault(); prev({ userAction: true }); }
+    else if (e.key === "ArrowRight") { e.preventDefault(); next({ userAction: true }); }
+    else if (e.key === "Home") { e.preventDefault(); goTo(0, { userAction: true }); }
+    else if (e.key === "End") { e.preventDefault(); goTo(count - 1, { userAction: true }); }
+  });
+
+  /* === TOUCH / SWIPE === */
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchDeltaX = 0;
+  let swiping = false;
+  const SWIPE_THRESHOLD = 50;
+
+  const viewport = carousel.querySelector(".slides-viewport");
+  if (viewport) {
+    viewport.addEventListener("touchstart", (e) => {
+      if (e.touches.length !== 1) return;
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      touchDeltaX = 0;
+      swiping = true;
+      pause();
+    }, { passive: true });
+
+    viewport.addEventListener("touchmove", (e) => {
+      if (!swiping) return;
+      touchDeltaX = e.touches[0].clientX - touchStartX;
+      const dy = e.touches[0].clientY - touchStartY;
+      if (Math.abs(dy) > Math.abs(touchDeltaX)) {
+        swiping = false;
+      }
+    }, { passive: true });
+
+    viewport.addEventListener("touchend", () => {
+      if (!swiping) { resume(); return; }
+      swiping = false;
+      if (touchDeltaX > SWIPE_THRESHOLD) prev({ userAction: true });
+      else if (touchDeltaX < -SWIPE_THRESHOLD) next({ userAction: true });
+      resume();
+    });
+
+    viewport.addEventListener("touchcancel", () => {
+      swiping = false;
+      resume();
     });
   }
 
-  let autoScroll = setInterval(() => changeSlide(), 4000);
-
-  function restartAutoScroll() {
-    clearInterval(autoScroll);
-    autoScroll = setInterval(() => changeSlide(), 4000);
+  /* === VIEWPORT-AWARE AUTOPLAY === */
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        inViewport = entry.isIntersecting;
+        if (inViewport && !paused) startAutoplay();
+        else stopAutoplay();
+      });
+    }, { threshold: 0.25 });
+    io.observe(carousel);
+  } else {
+    inViewport = true;
+    startAutoplay();
   }
 
-  document.querySelector(".next-slide").addEventListener("click", () => {
-    changeSlide(true);
-    restartAutoScroll();
+  /* === PAGE VISIBILITY === */
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) stopAutoplay();
+    else if (inViewport && !paused) startAutoplay();
   });
 
-  document.querySelector(".prev-slide").addEventListener("click", () => {
-    changeSlide(false);
-    restartAutoScroll();
-  });
-
-  dots.forEach(dot => {
-    dot.addEventListener('click', () => {
-      current = -100 * parseInt(dot.dataset.index);
-      slides.style.left = current + "%";
-      updateDots();
-      restartAutoScroll();
-    });
-  });
-
-  updateDots(); // активируем текущую точку на старте
+  render();
 });
+
+/* === SCROLL PROGRESS BAR === */
+(function () {
+  const bar = document.getElementById('scrollProgress');
+  if (!bar) return;
+  const update = () => {
+    const h = document.documentElement;
+    const scrolled = h.scrollTop;
+    const max = h.scrollHeight - h.clientHeight;
+    const pct = max > 0 ? (scrolled / max) * 100 : 0;
+    bar.style.width = pct + '%';
+  };
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+
+/* === HEADER SHRINK ON SCROLL === */
+(function () {
+  const header = document.querySelector('header');
+  if (!header) return;
+  const onScroll = () => {
+    if (window.scrollY > 40) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+/* === BACK TO TOP === */
+(function () {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+  const onScroll = () => {
+    if (window.scrollY > 400) btn.classList.add('visible');
+    else btn.classList.remove('visible');
+  };
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+/* === REVEAL ON SCROLL === */
+(function () {
+  const items = document.querySelectorAll('.reveal');
+  if (!items.length) return;
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(el => el.classList.add('visible'));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  items.forEach(el => io.observe(el));
+})();
+
+/* === STATS COUNTER === */
+(function () {
+  const numbers = document.querySelectorAll('.stat-number[data-target]');
+  if (!numbers.length) return;
+
+  const formatNumber = (n) => n.toLocaleString('en-US');
+
+  const animate = (el) => {
+    const target = parseInt(el.dataset.target, 10) || 0;
+    const suffix = el.dataset.suffix || '';
+    const duration = 1600;
+    const start = performance.now();
+    const step = (now) => {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const value = Math.floor(target * eased);
+      el.textContent = formatNumber(value) + suffix;
+      if (t < 1) requestAnimationFrame(step);
+      else el.textContent = formatNumber(target) + suffix;
+    };
+    requestAnimationFrame(step);
+  };
+
+  if (!('IntersectionObserver' in window)) {
+    numbers.forEach(animate);
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animate(entry.target);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  numbers.forEach(el => io.observe(el));
+})();
+
+/* === SCROLL SPY (NAV HIGHLIGHT) === */
+(function () {
+  const links = document.querySelectorAll('nav.nav-menu a[href^="#"]');
+  if (!links.length) return;
+  const sections = Array.from(links)
+    .map(a => document.querySelector(a.getAttribute('href')))
+    .filter(Boolean);
+
+  if (!('IntersectionObserver' in window)) return;
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        links.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+
+  sections.forEach(s => io.observe(s));
+})();
+
+/* === CLOSE MOBILE MENU AFTER NAV CLICK === */
+(function () {
+  const nav = document.querySelector('nav.nav-menu');
+  if (!nav) return;
+  nav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => nav.classList.remove('show'));
+  });
+})();
+
+/* === RESTORE SAVED LANGUAGE === */
+(function () {
+  let saved = null;
+  try { saved = localStorage.getItem('akinawa_lang'); } catch (e) {}
+  if (saved && translations[saved]) {
+    setLanguage(saved);
+  } else {
+    setLanguage('en');
+  }
+})();
